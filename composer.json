@@ -1,0 +1,17 @@
+{
+    "name": "hasinur/foodplan",
+    "description": "A meal tracker solution",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Hasinur\\MealMap\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hasinur Rahman",
+            "email": "hasinur@xpeedstudio.com"
+        }
+    ],
+    "require": {}
+}
