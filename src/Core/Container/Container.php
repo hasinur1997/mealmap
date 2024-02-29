@@ -7,8 +7,20 @@ use Hasinur\MealMap\Core\Container\Exception\DependencyIsNotInstantiableExceptio
 use ReflectionClass;
 
 class Container {
+    /**
+     * Store class instances
+     *
+     * @var array
+     */
     protected $instances = [];
 
+    /**
+     * Finds an entry of the container by its identifier and returns it.
+     *
+     * @param   string  $id  Indentifier of the entry to look for
+     *
+     * @return  object
+     */
     public function get( string $id ): object {
         if ( ! $this->hash($id) ) {
             $this->set($id);
@@ -16,7 +28,7 @@ class Container {
 
         $instance = $this->instances[$id];
 
-        return $this->resolve($id);
+        return $this->resolve($instance);
     }
 
     /**
