@@ -1,12 +1,13 @@
 <?php
-namespace Hasinur\MealMap\Abstracts;
+namespace Hasinur\MealMap\Core\Abstracts;
 
-use Hasinur\MealMap\Interfaces\HookableInterface;
-use Hasinur\MealMap\Interfaces\ProviderInterface;
+use Hasinur\MealMap\Core\Interfaces\HookableInterface;
+use Hasinur\MealMap\Core\Interfaces\ProviderInterface;
+use Hasinur\MealMap\MealMap;
 
 /**
  * Handle instiation of services
- * 
+ *
  * @package Hasinur\MealMap
  */
 abstract class Provider implements ProviderInterface {
@@ -25,7 +26,7 @@ abstract class Provider implements ProviderInterface {
      * @return  void
      */
     public function __construct( $services = [] ) {
-        if ( ! empty( $service ) ) {
+        if ( ! empty( $services ) ) {
             $this->services = $services;
         }
 
@@ -43,9 +44,10 @@ abstract class Provider implements ProviderInterface {
                 continue;
             }
 
+            $service = MealMap::$container->get( $service );
+
             if ( $service instanceof HookableInterface ) {
-                $object = new $service();
-                $object->register_hooks();
+                $service->register_hooks();
             }
         }
     }

@@ -27,4 +27,6 @@ if ( ! defined( 'MEAL_MAP_PLUGIN_STARTER_DIR' ) ) {
     define( 'MEAL_MAP_PLUGIN_STARTER_DIR', __FILE__ );
 }
 
-class_exists( MealMap::class ) && MealMap::instance();
+// class_exists( MealMap::class ) && MealMap::instance();
+
+MealMap::instance();

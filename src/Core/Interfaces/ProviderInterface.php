@@ -1,5 +1,5 @@
 <?php
-namespace Hasinur\MealMap\Interfaces;
+namespace Hasinur\MealMap\Core\Interfaces;
 
 /**
  * Provider Interface

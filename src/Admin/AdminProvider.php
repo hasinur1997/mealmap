@@ -1,7 +1,7 @@
 <?php
 namespace Hasinur\MealMap\Admin;
 
-use Hasinur\MealMap\Abstracts\Provider;
+use Hasinur\MealMap\Core\Abstracts\Provider;
 
 /**
  * Class AdminProvider.
@@ -16,7 +16,9 @@ class AdminProvider extends Provider {
      *
      * @var array
      */
-    protected  $services = [];
+    protected  $services = [
+        Menu::class,
+    ];
     
     /**
      * Checks if a service should be registered.

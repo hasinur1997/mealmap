@@ -1,7 +1,7 @@
 <?php
 namespace Hasinur\MealMap;
 
-use Hasinur\MealMap\Container\Container;
+use Hasinur\MealMap\Core\Container\Container;
 
 /**
  * Main plugin class.

@@ -1,13 +1,14 @@
 <?php
 namespace Hasinur\MealMap;
 
-use Hasinur\MealMap\Interfaces\ProviderInterface;
+use Hasinur\MealMap\Admin\AdminProvider;
+use Hasinur\MealMap\Core\Interfaces\ProviderInterface;
 
 /**
  * Class Bootstrap
- * 
+ *
  * Handles the plugins bootstrap process.
- * 
+ *
  * @package Hasinur\MealMap
  */
 class Bootstrap {
@@ -17,7 +18,7 @@ class Bootstrap {
      * @var string[]
      */
     protected static $providers = [
-
+        AdminProvider::class,
     ];
 
     /**
@@ -47,7 +48,7 @@ class Bootstrap {
      */
     protected static function register_providers(): void {
         foreach ( self::$providers as $provider ) {
-            if ( class_exists( $provider ) && is_subclass_of( $provider,ProviderInterface::class ) ) {
+            if ( class_exists( $provider ) && is_subclass_of( $provider, ProviderInterface::class ) ) {
                 new $provider();
             }
         }

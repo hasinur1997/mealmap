@@ -1,8 +1,8 @@
 <?php
-namespace Hasinur\MealMap\Abstracts;
+namespace Hasinur\MealMap\Core\Abstracts;
 
-use Hasinur\MealMap\Interfaces\CustomPostTypeInterface;
-use Hasinur\MealMap\Interfaces\HookableInterface;
+use Hasinur\MealMap\Core\Interfaces\CustomPostTypeInterface;
+use Hasinur\MealMap\Core\Interfaces\HookableInterface;
 
 /**
  * Class CPT

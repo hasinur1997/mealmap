@@ -1,7 +1,7 @@
 <?php
 namespace Hasinur\MealMap;
 
-use Hasinur\MealMap\Abstracts\CustomPostType;
+use Hasinur\MealMap\Core\Abstracts\CustomPostType;
 
 class CPT {
     /**
