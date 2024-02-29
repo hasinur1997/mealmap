@@ -2,6 +2,7 @@
 
 namespace Hasinur\MealMap;
 
+use Hasinur\MealMap\Admin\CPT\Meal\Meal;
 use Hasinur\MealMap\Core\Abstracts\CustomPostType;
 
 class CPT {
@@ -10,7 +11,9 @@ class CPT {
      *
      * @var string[]
      */
-    protected static $custom_post_types = [];
+    protected static $custom_post_types = [
+        Meal::class,
+    ];
 
     /**
      * Loop over the $custom_post_type array and
