@@ -1,4 +1,5 @@
 <?php
+
 namespace Hasinur\MealMap;
 
 use Hasinur\MealMap\Core\Abstracts\CustomPostType;
