@@ -23,24 +23,24 @@ class Installer {
      * @return  void
      */
     private static function create_tables(): void {
-        global $wp_db;
+        global $wpdb;
 
         require_once ABSPATH . '/wp-admin/includes/upgrade.php';
 
-        $charset_collate = $wp_db->get_charset_collate();
+        $charset_collate = $wpdb->get_charset_collate();
+        
+        $table = "CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}meal_map_orders` (
+			`id` int NOT NULL AUTO_INCREMENT,
+			`user_id` int NOT NULL,
+			`meal_id` int NOT NULL,
+			`price` decimal(10,4) DEFAULT NULL,
+			`status` varchar(15) DEFAULT NULL,
+			`created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+			`updated_at` timestamp NULL DEFAULT NULL,
+			PRIMARY KEY (`id`)
+		) {$charset_collate};";
 
-        $table = "CREATE TABLE IF NOT EXISTS `{$wp_db->prefix}meal_map_orders` (
-            `id` int NOT NULL AUTO_INCREMENT,
-            'user_id` int NOT NULL,
-            `meal_id` int NOT NULL,
-            `price` decimal(10, 4) DEFAULT NULL,
-            `status` varchar(15) DEFAULT NULL,
-            `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-            `updated_at` timestamp NULL DEFAULT NULL,
-            PRIMARY KEY (`id`)
-        ){$charset_collate};";
-
-        dbDelta( $table );
+		dbDelta( $table );
     }
 
     /**

@@ -116,7 +116,7 @@ class MealMap {
      * @return  void
      */
     protected function register_lifecycle(): void {
-        register_activation_hook( self::$plugin_file, [Active::class, 'handle'] );
+        register_activation_hook( self::$plugin_file, [Activate::class, 'handle'] );
         register_deactivation_hook( self::$plugin_file, [Deactivate::class, 'handle'] );
     }
 
