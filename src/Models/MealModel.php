@@ -3,6 +3,11 @@ namespace Hasinur\MealMap\Models;
 
 use stdClass;
 
+/**
+ * Meal Model
+ * 
+ * @package Hasinur\MealMap\Models
+ */
 class MealModel {
     /**
      * Store MealModel
