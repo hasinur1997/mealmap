@@ -10,8 +10,10 @@ class Meal extends CustomPostType {
      *
      * @return  void
      */
-    public function __construct() {
+    public function __construct( PriceMetaBox $price_meta_box ) {
         parent::__construct();
+
+        $price_meta_box->register_hooks();
     }
 
     /**
