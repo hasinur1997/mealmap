@@ -3,6 +3,7 @@ namespace Hasinur\MealMap\Admin;
 
 use Hasinur\MealMap\Admin\CPT\Meal\Capability;
 use Hasinur\MealMap\Core\Interfaces\HookableInterface;
+use Hasinur\MealMap\MealMap;
 
 /**
  * Admin menu class.
@@ -83,17 +84,17 @@ class Menu implements HookableInterface {
             [
                 'title' => __( 'Dashboard', 'meal-map' ),
                 'capability' => $this->base_capability,
-                'url'   => "admin.php?page={$this->menu_slug}/#dashboard",
+                'url'   => "admin.php?page={$this->menu_slug}#/dashboard",
             ],
             [
                 'title' => __( 'Orders', 'meal-map' ),
                 'capability' => $this->base_capability,
-                'url'   => "admin.php?page={$this->menu_slug}/#orders",
+                'url'   => "admin.php?page={$this->menu_slug}#/orders",
             ],
             [
                 'title' => __( 'Reports', 'meal-map' ),
                 'capability' => $this->base_capability,
-                'url'   => "admin.php?page={$this->menu_slug}/#reports",
+                'url'   => "admin.php?page={$this->menu_slug}#/reports",
             ],
             [
                 'title' => __( 'All Meals', 'meal-map' ),
@@ -152,7 +153,9 @@ class Menu implements HookableInterface {
      * @return  void
      */
     public function render_menu_page() {
-        echo '<div id="meal-map">Meal Map Page</div>';
+        wp_enqueue_script('meal-map');
+        wp_enqueue_style('meal-map-style');
+        echo '<div id="meal-map"></div>';
     }
 
     /**
@@ -161,7 +164,20 @@ class Menu implements HookableInterface {
      * @return  void
      */
     public function register_scripts(): void {
+        $assets = require_once MEAL_MAP_PLUGIN_STARTER_DIR . '/build/index.asset.php';
 
+        wp_register_script(
+            'meal-map', 
+            MealMap::$build_url . '/index.js', 
+            $assets['dependencies'],
+            $assets['version'],
+            false
+        );
+
+        wp_register_style(
+            'meal-map-style',
+            MealMap::$build_url . '/index.css'
+        );
     } 
 
     /**

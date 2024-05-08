@@ -24,7 +24,7 @@ if ( ! defined( 'MEAL_MAP_PLUGIN_STARTER_PLUGIN_FILE' ) ) {
 }
 
 if ( ! defined( 'MEAL_MAP_PLUGIN_STARTER_DIR' ) ) {
-    define( 'MEAL_MAP_PLUGIN_STARTER_DIR', __FILE__ );
+    define( 'MEAL_MAP_PLUGIN_STARTER_DIR', __DIR__ );
 }
 
 // class_exists( MealMap::class ) && MealMap::instance();
