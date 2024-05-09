@@ -21,6 +21,7 @@
     "autoprefixer": "^10.4.18",
     "postcss": "^8.4.35",
     "react-responsive-modal": "^6.4.2",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "react-toastify": "^10.0.5"
   }
 }
