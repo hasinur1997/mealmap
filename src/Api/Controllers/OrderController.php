@@ -6,6 +6,7 @@
  */
 namespace Hasinur\MealMap\Api\Controllers;
 
+use Hasinur\MealMap\Models\OrderModel;
 use WP_REST_Controller;
 use WP_REST_Server;
 
@@ -29,6 +30,15 @@ class OrderController extends WP_REST_Controller {
      * @var string
      */
     protected $rest_base = 'orders';
+
+    /**
+     * OrderController Constructor
+     *
+     * @return  void
+     */
+    public function __construct( OrderModel $order_model ) {
+        $this->order_model = $order_model;
+    }
 
     /**
      * Registers the routes for the objects of the controller.
