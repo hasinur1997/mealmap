@@ -78,6 +78,18 @@ mealmap/
 └── postcss.config.js  # PostCSS configuration
 ```
 
+## WordPress Architecture
+
+This plugin follows standard WordPress plugin architecture and best practices:
+
+- **Plugin bootstrap** — initialized via `MealMap::instance()` singleton pattern in `meal-map.php`
+- **Namespacing** — uses `Hasinur\MealMap` PHP namespace with PSR-4 autoloading via Composer
+- **WordPress hooks** — enqueues scripts and styles via `wp_enqueue_scripts` and `admin_enqueue_scripts` actions
+- **REST API** — registers custom endpoints under `/wp-json/meal-map/v1/` using `register_rest_route()`
+- **Gutenberg-compatible** — built with `@wordpress/element`, `@wordpress/api-fetch`, and `@wordpress/i18n` from the official WordPress package ecosystem
+- **Coding standards** — enforced via PHPCS with the WordPress ruleset (`phpcs.xml`)
+- **Security** — direct file access blocked with `defined('ABSPATH') || exit`
+
 ## Roadmap
 
 - [ ] User-specific meal plans
